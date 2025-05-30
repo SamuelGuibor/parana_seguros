@@ -1,8 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { InfiniteSlider } from '@/app/_components/motion-primitives/infinite-slider';
 import { Cpu, Fingerprint, Pencil, Settings2, Sparkles, Zap } from 'lucide-react';
 import { FeatureCard } from './ui/gridcards';
+import { motion, useReducedMotion } from 'framer-motion';
+import Image from 'next/image';
 
 const features = [
     {
@@ -47,26 +50,31 @@ const features = [
 export default function HowWorks() {
     return (
         <section
-            id="como-funciona"
-            className="overflow-x-hidden bg-gradient-to-r from-[#01020A] via-[#020312] to-[#03061D] text-white"
-        >
-            <div className="max-w-7xl mx-auto px-6 md:px-16 py-20">
-                <div className="mx-auto max-w-3xl text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        Como Funciona?
-                    </h2>
-                    <p className="text-lg md:text-xl text-gray-300">
-                        Tudo que voce precisa saber sobre os seus seguros!
-                    </p>
-                </div>
+        id="como-funciona"
+        className="overflow-x-hidden bg-gradient-to-r from-[#01020A] via-[#040727] to-[#03061D] text-white"
+    >
+			<div className="mx-auto w-full max-w-5xl space-y-8 px-4">
+				<AnimatedContainer className="mx-auto max-w-3xl text-center">
+					<h2 className="pt-4 text-3xl font-bold tracking-wide text-balance md:text-4xl lg:text-5xl xl:font-extrabold">
+						Power. Speed. Control.
+					</h2>
+					<p className="text-muted-foreground mt-4 text-sm tracking-wide text-balance md:text-base">
+						Everything you need to build fast, secure, scalable apps.
+					</p>
+				</AnimatedContainer>
 
-                {/* Grid dos cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mb-20 border border-dashed divide-x divide-y divide-dashed rounded-2xl overflow-hidden">
-                    {features.map((feature, i) => (
-                        <FeatureCard key={i} feature={feature} />
-                    ))}
-                </div>
+				<AnimatedContainer
+					delay={0.4}
+					className="grid grid-cols-1 divide-x divide-y border border-gray-500 z-10 sm:grid-cols-2 md:grid-cols-3"
+				>
+					{features.map((feature, i) => (
+						<FeatureCard key={i} feature={feature} />
+					))}
+				</AnimatedContainer>
 
+                <div className='flex justify-center'>
+                    <Image src="/Lojacorr.png" alt="lojacorr" width={800} height={200}/>
+                </div>
                 <div className="relative rounded-lg overflow-hidden bg-gradient-to-r from-[#01020A] via-[#020312] to-[#03061D]">
                     <div className="relative py-12 px-6 md:px-12">
                         <h3 className="text-center text-xl md:text-2xl font-semibold text-gray-300 mb-20 uppercase tracking-wide">
@@ -95,12 +103,38 @@ export default function HowWorks() {
                             ))}
                         </InfiniteSlider>
 
-                        {/* Gradientes laterais */}
+                        
                         <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#01020A] via-transparent to-transparent" />
                         <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#03061D] via-transparent to-transparent" />
                     </div>
                 </div>
-            </div>
-        </section>
-    );
+			</div>
+		</section>
+	);
+}
+
+type ViewAnimationProps = {
+	delay?: number;
+	className?: React.ComponentProps<typeof motion.div>['className'];
+	children: React.ReactNode;
+};
+
+function AnimatedContainer({ className, delay = 0.1, children }: ViewAnimationProps) {
+	const shouldReduceMotion = useReducedMotion();
+
+	if (shouldReduceMotion) {
+		return children;
+	}
+
+	return (
+		<motion.div
+			initial={{ filter: 'blur(4px)', translateY: -8, opacity: 0 }}
+			whileInView={{ filter: 'blur(0px)', translateY: 0, opacity: 1 }}
+			viewport={{ once: true }}
+			transition={{ delay, duration: 0.8 }}
+			className={className}
+		>
+			{children}
+		</motion.div>
+	);
 }
