@@ -7,7 +7,7 @@ export default function HeroSection() {
     return (
         <>
             <Header />
-            <main className="overflow-x-hidden bg-gradient-to-r from-[#0b0d17] via-[#040621] to-[#03061D] text-white">
+            <main className="bg-gradient-to-r from-[#0b0d17] via-[#040621] to-[#03061D] text-white">
                 <section>
                     <div className="pb-24 pt-12 lg:pt-44 h-screen">
                         <div className="relative mx-auto flex max-w-6xl flex-col px-6 lg:block">
@@ -25,7 +25,7 @@ export default function HeroSection() {
                                         size="lg"
                                         className="px-5 text-base bg-blue-600 hover:bg-blue-700"
                                     >
-                                        <Link href="#link">
+                                        <Link href="/form">
                                             <span className="text-nowrap">Quero Fazer Meu Seguro Agora!</span>
                                         </Link>
                                     </Button>

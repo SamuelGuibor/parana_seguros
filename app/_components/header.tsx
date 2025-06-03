@@ -33,7 +33,7 @@ export function Header() {
 
     return (
         <header
-            className={`fixed top-0 left-0 w-full z-10 bg-gradient-to-r from-[#01020A] via-[#020312] via-[#03061D] via-[#020312] via-[#03061D] via-[#020312] via-[#03061D] to-[#01020A] text-white transition-opacity duration-700 ${showHeader ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+            className={`fixed top-0 left-0 w-full z-10 bg-gradient-to-r from-[#01020A] via-[#03061D] to-[#01020A] text-white transition-opacity duration-700 ${showHeader ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
                 }`}
         >
             <div className="flex items-center justify-between w-full px-6 py-8 mx-auto max-w-8xl">
