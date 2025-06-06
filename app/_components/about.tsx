@@ -51,7 +51,7 @@ export default function HowWorks() {
     return (
         <section
         id="como-funciona"
-        className="overflow-x-hidden bg-gradient-to-r from-[#01020A] via-[#040727] to-[#03061D] text-white"
+        className="overflow-x-hidden bg-gradient-to-r from-[#0b0d17] via-[#040621] to-[#03061D] text-white"
     >
 			<div className="mx-auto w-full max-w-5xl space-y-8 px-4">
 				<AnimatedContainer className="mx-auto max-w-3xl text-center">
@@ -75,7 +75,7 @@ export default function HowWorks() {
                 <div className='flex justify-center'>
                     <Image src="/Lojacorr.png" alt="lojacorr" width={800} height={200}/>
                 </div>
-                <div className="relative rounded-lg overflow-hidden bg-gradient-to-r from-[#01020A] via-[#020312] to-[#03061D]">
+                <div className="relative rounded-lg overflow-hidden bg-gradient-to-r from-[#0b0d17] via-[#040621] to-[#03061D]">
                     <div className="relative py-12 px-6 md:px-12">
                         <h3 className="text-center text-xl md:text-2xl font-semibold text-gray-300 mb-20 uppercase tracking-wide">
                             Nossos parceiros
@@ -103,9 +103,7 @@ export default function HowWorks() {
                             ))}
                         </InfiniteSlider>
 
-                        
-                        <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#01020A] via-transparent to-transparent" />
-                        <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#03061D] via-transparent to-transparent" />
+                                      
                     </div>
                 </div>
 			</div>
